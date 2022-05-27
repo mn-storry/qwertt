@@ -1,1 +1,1 @@
-https://mn-storry.github.io/qwerty/sample/dist/html/base/index.html
+https://mn-storry.github.io/qwertt/sample/dist/html/base/index.html
