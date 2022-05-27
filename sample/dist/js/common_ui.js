@@ -62,56 +62,8 @@ var ui = {
 		})
 },
 	/*
-	* comment  : header
-	*/
-	fxHeader: function() {
-		if ($('header').length) {
-			ui.window.$this.on({
-				'scroll': function() {
-					// 만약 탑 베너가 존재하고 스크롤 높이가 0보다 큰 경우
-					if (ui.window.scrollTop > 0 && $('.top-banner').length > 0) {
-						// 탑 베너가 존재하는 경우 탑 베너 높이보다 스크롤이 클 경우 header fix 부여
-						if (ui.window.scrollTop > ui.$topBanner.height) {
-							console.log('1', ui.window.scrollTop, ui.$topBanner.height);
-							$('header').addClass('fix');
-							//$('.search-wrap').removeClass('active');
-						}
-					} else if (ui.window.scrollTop && $('.top-banner').length === 0) {
-						console.log('2');
-						$('header').addClass('fix');
-						//$('.search-wrap').removeClass('active');
-					}
-					if (ui.window.scrollTop < ui.$header.offset().top && $('.top-banner').length > 0) {
-						console.log('3');
-						$('header').removeClass('fix');
-					} else if (ui.window.scrollTop && $('.top-banner').length === 0) {
-						console.log('4');
-						$('header').removeClass('fix');
-					}
-				},
-			});
-		}
-	},
-	/*
 	* comment  : check all checkbox
 	*/
-	fxCheckAll: function() {
-		function enableCheckAll(element) {
-			$(element).each(function(){
-				var $chkItems = $(this).find(':checkbox').not('.checkall');
-				$(this).find('.checkall').click(function() {
-					$chkItems.prop('checked', this.checked);
-				});
-				$chkItems.change(function() {
-					var numOfChecked = $chkItems.filter(':checked').length,
-						numOfCheckboxes = $chkItems.length,
-						isAllChecked = numOfChecked === numOfCheckboxes;
-					$(this).closest(element).find('.checkall').prop('checked', isAllChecked);
-				});
-			});
-		}
-		enableCheckAll('.chkall-group');
-	},
 	/*
 	* comment  : slide
 	*/
@@ -185,9 +137,12 @@ var ui = {
 
 function offsetEvent() {
 	$('.offset-event').each(function() {
-		var $itemOffset = $(this).offset().top;
-		if ($itemOffset - 250 < ui.window.scrollTop) {
+		var offsetArea = $(this).offset().top;
+		
+		if (offsetArea - 1200 < $(window).scrollTop()) {
 			$(this).addClass('active');
+		}else {
+			$(this).removeClass('active');
 		}
 	});
 }
@@ -196,8 +151,18 @@ function offsetEvent() {
 $(function() {
   //ui.init();
 
+	$('.video-item').mouseenter(function(){
+		$(this).addClass('active');
+		$(this).find('video').get(0).play();
+	})
+	.mouseleave(function(){
+		$(this).removeClass('active');
+		$(this).find('video').get(0).currentTime = 0;
+		$(this).find('video').get(0).pause();
+	});
+
   AOS.init({
-	  //duration: 1000
+	  duration: 1000
   });
 
   if ($('.offset-event').length) {
@@ -216,15 +181,39 @@ $(function() {
   //   $('header').addClass('fix');
   // });
 
-  $('#gnb-menu').hover(function(){
-    $('header').toggleClass('over fix');
-    $('main').toggleClass('active');
-
+  $('#gnb-menu').on('mouseenter', function(){
+	if(!$('header').hasClass('over')){
+		$('header').addClass('over');
+		$('header').addClass('fix');
+	}
+	// if(!$('header').hasClass('fix')){
+	// 	$(this).addClass('fix')
+	// }
   });
+
+  $('#gnb-menu').on('mouseleave', function(){
+		$('header').removeClass('over');
+		$('main').removeClass('active');
+		$('#gnb-menu > li').removeClass('hover');
+
+		if($(window).scrollTop() == 0){
+			$('header').removeClass('fix');
+		}
+  });
+
 	
-  $('#gnb-menu > li > a').hover(function(){
-    $('#gnb-menu').find('.gnb-sub-wrap').hide();
-    $(this).closest('li').find('.gnb-sub-wrap').show();
+  $('#gnb-menu > li').hover(function(){
+    $('#gnb-menu').find('.gnb-sub-wrap').removeClass('show');
+    $(this).closest('li').find('.gnb-sub-wrap').addClass('show');
+		$('#gnb-menu > li').removeClass('hover');
+		$(this).addClass('hover');
+	
+		if( $(this).closest('li').find('.gnb-sub-wrap').length > 0){
+		//if($('.gnb-sub-wrap').is(':visible')){
+			$('main').addClass('active');
+		}else {
+			$('main').removeClass('active');
+		}
   });
 
   // GNB
@@ -281,32 +270,73 @@ $(function() {
 });
 
 
+/*
+function offsetEvent() {
+	var offsetValue = $('[data-offset]');
+
+	$('.offset-event').each(function() {
+		var offsetArea = $(this).offset().top;
+		var offPosition = $this.data('offset');
+		var win_h = $(window).scrollTop();
+		
+		if (win_h > offsetArea - offPosition) {
+			$(this).addClass('active');
+		}else {
+			$(this).removeClass('active');
+		}
+	});
+}
+*/
+
+function offsetActive() {
+	$('.section-spotlight').each(function() {
+		  var offsetValue = $(this).offset().top;
+		  if (offsetValue - 450 < $(window).scrollTop()) {
+				$(this).addClass('active');
+		  }else {
+				$(this).removeClass('active');
+			}
+	});
+}
+
 $(window).on({
-    'load': function(){
-      this.isDown = false;
-      this.preTop = $(window).scrollTop();
-    },
-    'scroll': function() {
-        var winH = $(window).height(),
-            winTop = $(window).scrollTop(),
-            docH = $(document).height();
+	'load': function(){
+			this.isDown = false;
+			this.preTop = $(window).scrollTop();
+		offsetActive();
+	},
+	'scroll': function() {
+				offsetActive();
 
-        if (winTop > this.preTop && !this.isDown) {
-            this.isDown = true;
-            $('header').removeClass('fix').addClass('slideUp');
-        } else if (winTop < this.preTop && this.isDown) {
-            this.isDown = false;
-            $('header').addClass('fix').removeClass('slideUp');
-        }
+				var winH = $(window).height(),
+						winTop = $(window).scrollTop(),
+						docH = $(document).height();
 
-        if (winTop > docH - winH) {
-            this.isDown = true;
-            console.log('a')
-        } else if (winTop <= 0) {
-          this.isDown = false;
-          $('header').removeClass('fix');
-        }
+				$('header').removeClass('over');
+				$('main').removeClass('active');
+				$('#gnb-menu > li').removeClass('hover'); 
 
-        this.preTop = winTop;
-    }
-})
+				if (winTop > this.preTop && !this.isDown) {
+						this.isDown = true;
+						$('header').removeClass('fix over').addClass('slideUp');
+						$('.gnb-sub-wrap').hide();
+						setTimeout(function(){
+							$('.gnb-sub-wrap').removeAttr('style');
+						},500);
+				} else if (winTop < this.preTop && this.isDown) {
+						this.isDown = false;
+						$('header').addClass('fix').removeClass('slideUp');
+				}
+
+				if (winTop > docH - winH) {
+						this.isDown = true;
+						console.log('a')
+				} else if (winTop <= 0) {
+					this.isDown = false;
+					$('header').removeClass('fix');
+				}
+
+				this.preTop = winTop;
+		}
+	
+});
