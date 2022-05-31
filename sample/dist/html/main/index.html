@@ -24,14 +24,14 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" type="text/css" href="../../assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="../../assets/css/common.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"> -->
 
     <link rel="stylesheet" type="text/css" href="../../assets/css/main.css">
 
     <script src="../../js/libs/jquery-1.9.1.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="../../js/common_ui.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>  -->
     <!--
   
 -->
@@ -230,7 +230,7 @@
         <main>
             <section class="main-visual">
                 <div class="visual-area">
-                    <div class="swiper mySwiper">
+                    <div class="swiper swiper-area mySwiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="visual-item">
@@ -315,7 +315,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-list">
+                <div class="product-list swiper-area">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="prd-item">
@@ -406,7 +406,7 @@
             </section>
 
             <!-- Spotlight -->
-            <section class="section-spotlight">
+            <section class="section-spotlight offset-event" data-offset="250">
                 <a href="#">
                     <img src="../../assets/images/spotlight_img01.png" alt="">
                     <div>
@@ -427,7 +427,7 @@
                     </div>
                 </div>
 
-                <div class="product-list">
+                <div class="product-list swiper-area">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="prd-item">
@@ -524,7 +524,7 @@
                         <h3 class="title-h3">Style Curation</h3>
                     </div>
                 </div>
-                <div class="curation-list offset-event">
+                <div class="curation-list offset-event" data-offset="740">
                     <div>
                         <img src="../../assets/images/curation_visual01.png" alt="">
                     </div>
@@ -556,7 +556,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="curation-list offset-event">
+                <div class="curation-list offset-event" data-offset="740">
                     <div>
                         <div class="tit">
                             <p>
@@ -591,7 +591,7 @@
             </section>
 
             <!-- Spotlight -->
-            <section class="section-spotlight">
+            <section class="section-spotlight offset-event" data-offset="450">
                 <a href="#">
                     <img src="../../assets/images/spotlight_img02.png" alt="">
                     <div>
@@ -605,7 +605,7 @@
             </section>
 
             <!-- Promotion -->
-            <section class="section-promotion offset-event" data-offset="50">
+            <section class="section-promotion offset-event" data-offset="900">
                 <a href="#">
                     <div class="ef-scale">
                         <img src="../../assets/images/promotion_img01.png" alt="">
@@ -685,8 +685,8 @@
                     </div>
                 </div>
 
-                <div class="section-play">
-                    <div class="swiper-wrapper ">
+                <div class="section-play swiper-area">
+                    <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="play-item">
                                 <a href="#">
@@ -760,135 +760,38 @@
                                 </a>
                             </div>
                         </div>
+                        <div class="swiper-slide">
+                            <div class="play-item">
+                                <a href="#">
+                                    <div class="item-img">
+                                        <img src="../../assets/images/play_img08.png" alt="">
+                                    </div>
+                                    <p class="name">데상트 골프X고수</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="play-item">
+                                <a href="#">
+                                    <div class="item-img">
+                                        <img src="../../assets/images/play_img09.png" alt="">
+                                    </div>
+                                    <p class="name">고스트 재킷이 선사하는...</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="play-item">
+                                <a href="#">
+                                    <div class="item-img">
+                                        <img src="../../assets/images/play_img10.png" alt="">
+                                    </div>
+                                    <p class="name">필드위의 R90</p>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!--
-				<div class="sw perview type2">
-					<div class="swiper-wrapper">
-						
-						<div class="swiper-slide">
-							<div class="prd-item type2">
-								<a href="#">
-									<div class="thumb grid__cnt__img" data-displacement="https://ucarecdn.com/00696a3e-9195-4972-b486-460d9d880664/10.jpg" data-intensity="0.7" data-speedIn="1" data-speedOut="0.5" data-easing="Power2.easeOut">
-										<img src="../../assets/images/p1.png" alt="">
-										<img src="../../assets/images/p2.jpg" alt="">
-									</div>
-									<p class="name">쓸어치는 느낌으로 스윙</p>
-								</a>
-							</div>
-						</div>
-						
-						<div class="swiper-slide">
-							<div class="prd-item type2">
-								<a href="#">
-									<div class="thumb grid__cnt__img" data-displacement="https://ucarecdn.com/00696a3e-9195-4972-b486-460d9d880664/10.jpg" data-intensity="0.7" data-speedIn="1" data-speedOut="0.5" data-easing="Power2.easeOut">
-										<img src="../../assets/images/p1.png" alt="">
-										<img src="../../assets/images/p2.jpg" alt="">
-									</div>
-									<p class="name">쓸어치는 느낌으로 스윙</p>
-								</a>
-							</div>
-						</div>
-						
-						<div class="swiper-slide">
-							<div class="prd-item type2">
-								<a href="#">
-									<div class="thumb grid__cnt__img" data-displacement="https://ucarecdn.com/00696a3e-9195-4972-b486-460d9d880664/10.jpg" data-intensity="0.7" data-speedIn="1" data-speedOut="0.5" data-easing="Power2.easeOut">
-										<img src="../../assets/images/p1.png" alt="">
-										<img src="../../assets/images/p2.jpg" alt="">
-									</div>
-									<p class="name">쓸어치는 느낌으로 스윙</p>
-								</a>
-							</div>
-						</div>
-						
-						<div class="swiper-slide">
-							<div class="prd-item type2">
-								<a href="#">
-									<div class="thumb grid__cnt__img" data-displacement="https://ucarecdn.com/00696a3e-9195-4972-b486-460d9d880664/10.jpg" data-intensity="0.7" data-speedIn="1" data-speedOut="0.5" data-easing="Power2.easeOut">
-										<img src="../../assets/images/p1.png" alt="">
-										<img src="../../assets/images/p2.jpg" alt="">
-									</div>
-									<p class="name">쓸어치는 느낌으로 스윙</p>
-								</a>
-							</div>
-						</div>
-						
-						<div class="swiper-slide">
-							<div class="prd-item type2">
-								<a href="#">
-									<div class="thumb grid__cnt__img" data-displacement="https://ucarecdn.com/00696a3e-9195-4972-b486-460d9d880664/10.jpg" data-intensity="0.7" data-speedIn="1" data-speedOut="0.5" data-easing="Power2.easeOut">
-										<img src="../../assets/images/p1.png" alt="">
-										<img src="../../assets/images/p2.jpg" alt="">
-									</div>
-									<p class="name">쓸어치는 느낌으로 스윙</p>
-								</a>
-							</div>
-						</div>
-						
-						<div class="swiper-slide">
-							<div class="prd-item type2">
-								<a href="#">
-									<div class="thumb grid__cnt__img" data-displacement="https://ucarecdn.com/00696a3e-9195-4972-b486-460d9d880664/10.jpg" data-intensity="0.7" data-speedIn="1" data-speedOut="0.5" data-easing="Power2.easeOut">
-										<img src="../../assets/images/p1.png" alt="">
-										<img src="../../assets/images/p2.jpg" alt="">
-									</div>
-									<p class="name">쓸어치는 느낌으로 스윙</p>
-								</a>
-							</div>
-						</div>
-						
-						<div class="swiper-slide">
-							<div class="prd-item type2">
-								<a href="#">
-									<div class="thumb grid__cnt__img" data-displacement="https://ucarecdn.com/00696a3e-9195-4972-b486-460d9d880664/10.jpg" data-intensity="0.7" data-speedIn="1" data-speedOut="0.5" data-easing="Power2.easeOut">
-										<img src="../../assets/images/p1.png" alt="">
-										<img src="../../assets/images/p2.jpg" alt="">
-									</div>
-									<p class="name">쓸어치는 느낌으로 스윙</p>
-								</a>
-							</div>
-						</div>
-						
-						<div class="swiper-slide">
-							<div class="prd-item type2">
-								<a href="#">
-									<div class="thumb grid__cnt__img" data-displacement="https://ucarecdn.com/00696a3e-9195-4972-b486-460d9d880664/10.jpg" data-intensity="0.7" data-speedIn="1" data-speedOut="0.5" data-easing="Power2.easeOut">
-										<img src="../../assets/images/p1.png" alt="">
-										<img src="../../assets/images/p2.jpg" alt="">
-									</div>
-									<p class="name">쓸어치는 느낌으로 스윙</p>
-								</a>
-							</div>
-						</div>
-						
-						<div class="swiper-slide">
-							<div class="prd-item type2">
-								<a href="#">
-									<div class="thumb grid__cnt__img" data-displacement="https://ucarecdn.com/00696a3e-9195-4972-b486-460d9d880664/10.jpg" data-intensity="0.7" data-speedIn="1" data-speedOut="0.5" data-easing="Power2.easeOut">
-										<img src="../../assets/images/p1.png" alt="">
-										<img src="../../assets/images/p2.jpg" alt="">
-									</div>
-									<p class="name">쓸어치는 느낌으로 스윙</p>
-								</a>
-							</div>
-						</div>
-						
-						<div class="swiper-slide">
-							<div class="prd-item type2">
-								<a href="#">
-									<div class="thumb grid__cnt__img" data-displacement="https://ucarecdn.com/00696a3e-9195-4972-b486-460d9d880664/10.jpg" data-intensity="0.7" data-speedIn="1" data-speedOut="0.5" data-easing="Power2.easeOut">
-										<img src="../../assets/images/p1.png" alt="">
-										<img src="../../assets/images/p2.jpg" alt="">
-									</div>
-									<p class="name">쓸어치는 느낌으로 스윙</p>
-								</a>
-							</div>
-						</div>
-						
-					</div>
-				</div>
-				-->
             </section>
 
             <!-- Trend Now -->
@@ -978,7 +881,7 @@
                     </div>
                 </div>
 
-                <div class="product-list">
+                <div class="product-list swiper-area">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="prd-item">
@@ -1071,19 +974,19 @@
             <!-- design -->
             <section class="section-design">
                 <div class="design-floater ty1">
-                    <div class="textrue bold" data-aos="fade-up" data-aos-offset="0" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
+                    <div class="textrue bold offset-event" data-offset="800">
                         <p class="tit big">
                             Authentic design<br />
 							and creativity.
                         </p>
                         <span class="bold">진정성 있는 디자인과 창의성의 가치</span>
                     </div>
-                    <div class="img" data-aos="fade-down" data-aos-offset="200" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+                    <div class="img offset-event" data-offset="900">
                         <img src="../../assets/images/design_img01.png" alt="">
                     </div>
                 </div>
 
-                <div class="design-floater ty2" data-aos="fade-up" data-aos-offset="100" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+                <div class="design-floater ty2 offset-event" data-offset="800">
                     <div class="img">
                         <img src="../../assets/images/design_img02.png" alt="">
                     </div>
